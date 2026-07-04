@@ -4,24 +4,33 @@ from ics import Calendar, Event
 
 SPOT_NAME = "La Madrague (Anglet)"
 LAT = 43.511
-LON = -1.600  # Positionné au large pour la stabilité des API
+LON = -1.600
 
 def get_wind_limit(wind_dir):
-    """Retourne la vitesse max selon la direction du vent (en degrés)"""
     if wind_dir is None: return 5
-    if 0 <= wind_dir < 45: return 5       # N à NE
-    elif 45 <= wind_dir < 135: return 30   # E (Offshore)
-    elif 135 <= wind_dir < 165: return 30  # SE (Offshore)
-    elif 165 <= wind_dir < 195: return 25  # S (Sideshore/Offshore)
-    elif 195 <= wind_dir < 225: return 10  # SW
-    elif 225 <= wind_dir < 290: return 5   # W (Onshore)
-    elif 290 <= wind_dir <= 330: return 15 # NW pur (tolérance)
-    else: return 5                         # Fin NW à N
+    if 0 <= wind_dir < 45: return 5
+    elif 45 <= wind_dir < 135: return 30
+    elif 135 <= wind_dir < 165: return 30
+    elif 165 <= wind_dir < 195: return 25
+    elif 195 <= wind_dir < 225: return 10
+    elif 225 <= wind_dir < 290: return 5
+    elif 290 <= wind_dir <= 330: return 15
+    else: return 5
+
+def get_wind_arrow(wind_dir):
+    if wind_dir is None: return "💨"
+    d = wind_dir % 360
+    if 337.5 <= d or d < 22.5: return "⬇️"
+    elif 22.5 <= d < 67.5: return "↙️"
+    elif 67.5 <= d < 112.5: return "⬅️"
+    elif 112.5 <= d < 157.5: return "↖️"
+    elif 157.5 <= d < 202.5: return "⬆️"
+    elif 202.5 <= d < 247.5: return "↗️"
+    elif 247.5 <= d < 292.5: return "➡️"
+    else: return "↘️"
 
 def check_swell_criteria(height, period):
-    """Filtres ajustés pour calibrer le modèle de l'API Open-Meteo"""
     if height is None or period is None: return False
-    # Palier 1 : Ajusté à 7s pour capter les petites houles propres propres du matin
     if 0.5 <= height <= 0.8 and period >= 7: return True
     if 0.9 <= height <= 1.0 and period >= 10: return True
     if 1.1 <= height <= 3.0 and period >= 9: return True
@@ -31,9 +40,7 @@ def fetch_all_data():
     marine_url = f"https://marine-api.open-meteo.com/v1/marine?latitude={LAT}&longitude={LON}&hourly=swell_wave_height,swell_wave_period,swell_wave_direction&timezone=Europe/Paris"
     weather_url = f"https://api.open-meteo.com/v1/forecast?latitude={LAT}&longitude={LON}&hourly=wind_speed_10m,wind_direction_10m&daily=sunrise,sunset&timezone=Europe/Paris"
     try:
-        m_res = requests.get(marine_url).json()
-        w_res = requests.get(weather_url).json()
-        return m_res, w_res
+        return requests.get(marine_url).json(), requests.get(weather_url).json()
     except Exception as e:
         print(f"Erreur requêtes : {e}")
         return None, None
@@ -65,7 +72,6 @@ def generate_calendar():
         sunrise_dt = datetime.datetime.fromisoformat(sunrises[date_str]) - datetime.timedelta(minutes=30)
         sunset_dt = datetime.datetime.fromisoformat(sunsets[date_str]) + datetime.timedelta(minutes=30)
         
-        # Filtre de lumière du jour
         if sunrise_dt.time() <= dt.time() <= sunset_dt.time():
             h = swell_heights[i]
             p = swell_periods[i]
@@ -74,19 +80,19 @@ def generate_calendar():
             
             if None in [h, p, w_s, w_d]: continue
                 
-            is_swell_ok = check_swell_criteria(h, p)
-            is_wind_ok = w_s <= get_wind_limit(w_d)
-            
-            if is_swell_ok and is_wind_ok:
+            if check_swell_criteria(h, p) and w_s <= get_wind_limit(w_d):
                 sessions_count += 1
+                arrow = get_wind_arrow(w_d)
+                
                 event = Event()
-                event.name = f"🏄‍♂️ Surf Madrague ({h}m - {p}s | Vent: {round(w_s)}km/h)"
+                # Titre mis à jour avec la flèche de direction
+                event.name = f"Good sess' ({h}m - {p}s - {round(w_s)}km/h {arrow})"
                 event.begin = dt
                 event.end = dt + datetime.timedelta(hours=1)
-                event.description = f"🌊 Houle : {h}m | Période : {p}s\n💨 Vent : {w_s} km/h (Dir : {round(w_d)}°)"
+                event.description = f"🌊 Houle : {h}m | Période : {p}s\n💨 Vent : {w_s} km/h ({arrow})"
                 cal.events.add(event)
 
-    print(f"Nombre total de sessions ajoutées : {sessions_count}")
+    print(f"Nombre total de sessions ajoutées avec flèches : {sessions_count}")
     with open("la_madrague.ics", "w", encoding="utf-8") as f:
         f.writelines(cal.serialize_iter())
 

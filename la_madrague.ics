@@ -1,4 +1,165 @@
 BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+DESCRIPTION:🌊 Houle : 0.52m | Période : 7.45s\n💨 Vent : 4.8 km/h (Dir : 53°)
+DTEND:20260710T120000Z
+DTSTART:20260710T110000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.52m - 7.45s | Vent: 5km/h)
+UID:8dcba2be-cd3b-4ae0-a199-ad1e512af2d6@8dcb.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:🌊 Houle : 0.64m | Période : 7.8s\n💨 Vent : 9.7 km/h (Dir : 292°)
+DTEND:20260705T140000Z
+DTSTART:20260705T130000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.64m - 7.8s | Vent: 10km/h)
+UID:34b29bbb-a07d-4334-8a8e-51a060b8798a@34b2.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:🌊 Houle : 0.52m | Période : 9.7s\n💨 Vent : 5.1 km/h (Dir : 94°)
+DTEND:20260710T230000Z
+DTSTART:20260710T220000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.52m - 9.7s | Vent: 5km/h)
+UID:9ca6564e-c2a8-4af1-aaba-38e9d2beb0a9@9ca6.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:🌊 Houle : 0.52m | Période : 7.5s\n💨 Vent : 1.0 km/h (Dir : 135°)
+DTEND:20260710T100000Z
+DTSTART:20260710T090000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.52m - 7.5s | Vent: 1km/h)
+UID:77f78787-b4ad-4a6c-b431-7b2c166e94a2@77f7.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:🌊 Houle : 0.52m | Période : 7.15s\n💨 Vent : 11.6 km/h (Dir : 57°)
+DTEND:20260710T170000Z
+DTSTART:20260710T160000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.52m - 7.15s | Vent: 12km/h)
+UID:c6872200-1377-4f37-9a49-e8890467450f@c687.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:🌊 Houle : 0.52m | Période : 7.4s\n💨 Vent : 7.3 km/h (Dir : 48°)
+DTEND:20260710T130000Z
+DTSTART:20260710T120000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.52m - 7.4s | Vent: 7km/h)
+UID:bee81e5a-9677-4db1-96e9-cac805c05479@bee8.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:🌊 Houle : 0.52m | Période : 7.1s\n💨 Vent : 11.9 km/h (Dir : 63°)
+DTEND:20260710T180000Z
+DTSTART:20260710T170000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.52m - 7.1s | Vent: 12km/h)
+UID:0e5457c1-f48d-4c4b-af92-bc53499b7682@0e54.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:🌊 Houle : 0.52m | Période : 7.3s\n💨 Vent : 9.2 km/h (Dir : 47°)
+DTEND:20260710T140000Z
+DTSTART:20260710T130000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.52m - 7.3s | Vent: 9km/h)
+UID:9aa3ebaa-b8b9-4210-83ed-f705bde06dc2@9aa3.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:🌊 Houle : 0.52m | Période : 7.5s\n💨 Vent : 2.5 km/h (Dir : 69°)
+DTEND:20260710T110000Z
+DTSTART:20260710T100000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.52m - 7.5s | Vent: 2km/h)
+UID:b9b3368d-5c00-4bdd-b42f-ee1956549174@b9b3.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:🌊 Houle : 0.54m | Période : 7.9s\n💨 Vent : 8.1 km/h (Dir : 85°)
+DTEND:20260710T220000Z
+DTSTART:20260710T210000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.54m - 7.9s | Vent: 8km/h)
+UID:43a46570-045a-46bb-a3c1-ec6a2c6fe847@43a4.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:🌊 Houle : 0.52m | Période : 7.25s\n💨 Vent : 10.4 km/h (Dir : 48°)
+DTEND:20260710T150000Z
+DTSTART:20260710T140000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.52m - 7.25s | Vent: 10km/h)
+UID:ad498d38-ee0a-49dd-b813-fdca89f56b9f@ad49.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:🌊 Houle : 0.52m | Période : 7.2s\n💨 Vent : 11.1 km/h (Dir : 51°)
+DTEND:20260710T160000Z
+DTSTART:20260710T150000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.52m - 7.2s | Vent: 11km/h)
+UID:af3743d2-1650-42ca-95dd-113ae1033113@af37.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:🌊 Houle : 0.5m | Période : 7.15s\n💨 Vent : 12.1 km/h (Dir : 78°)
+DTEND:20260706T140000Z
+DTSTART:20260706T130000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.5m - 7.15s | Vent: 12km/h)
+UID:4e4223f0-54d1-431a-884d-99f874850ac6@4e42.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:🌊 Houle : 0.64m | Période : 7.75s\n💨 Vent : 12.4 km/h (Dir : 324°)
+DTEND:20260705T150000Z
+DTSTART:20260705T140000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.64m - 7.75s | Vent: 12km/h)
+UID:32137d20-9002-443c-9aeb-bd3281515d35@3213.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:🌊 Houle : 0.52m | Période : 7.6s\n💨 Vent : 3.7 km/h (Dir : 223°)
+DTEND:20260710T080000Z
+DTSTART:20260710T070000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.52m - 7.6s | Vent: 4km/h)
+UID:ade589ef-e52b-434e-9fa1-25bbc4441d09@ade5.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:🌊 Houle : 0.64m | Période : 7.9s\n💨 Vent : 4.9 km/h (Dir : 234°)
+DTEND:20260705T120000Z
+DTSTART:20260705T110000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.64m - 7.9s | Vent: 5km/h)
+UID:1f138fcf-bfd5-4e4b-8220-87867c43fc0d@1f13.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:🌊 Houle : 0.52m | Période : 7.55s\n💨 Vent : 2.2 km/h (Dir : 204°)
+DTEND:20260710T090000Z
+DTSTART:20260710T080000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.52m - 7.55s | Vent: 2km/h)
+UID:7cfb02be-1f8c-4536-8204-86d33528db00@7cfb.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:🌊 Houle : 0.52m | Période : 7.4s\n💨 Vent : 2.9 km/h (Dir : 173°)
+DTEND:20260706T090000Z
+DTSTART:20260706T080000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.52m - 7.4s | Vent: 3km/h)
+UID:0997c53f-8cdf-427f-bd1b-8039ddde7fae@0997.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:🌊 Houle : 0.52m | Période : 7.4s\n💨 Vent : 6.2 km/h (Dir : 71°)
+DTEND:20260706T110000Z
+DTSTART:20260706T100000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.52m - 7.4s | Vent: 6km/h)
+UID:6ee59ddb-91b9-46e8-af56-d60984d96ad7@6ee5.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:🌊 Houle : 0.52m | Période : 7.2s\n💨 Vent : 5.9 km/h (Dir : 151°)
+DTEND:20260706T120000Z
+DTSTART:20260706T110000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.52m - 7.2s | Vent: 6km/h)
+UID:b8737f06-23e2-4ee3-b8bd-39fc1bb54b89@b873.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:🌊 Houle : 0.62m | Période : 7.75s\n💨 Vent : 3.7 km/h (Dir : 331°)
+DTEND:20260705T180000Z
+DTSTART:20260705T170000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.62m - 7.75s | Vent: 4km/h)
+UID:529384dc-f340-4039-b083-7a399f8563ff@5293.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:🌊 Houle : 0.5m | Période : 7.15s\n💨 Vent : 8.8 km/h (Dir : 78°)
+DTEND:20260706T130000Z
+DTSTART:20260706T120000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.5m - 7.15s | Vent: 9km/h)
+UID:7f8ebba8-aaf6-46f0-8864-dd97c857e120@7f8e.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:🌊 Houle : 0.52m | Période : 7.6s\n💨 Vent : 3.7 km/h (Dir : 89°)
+DTEND:20260706T100000Z
+DTSTART:20260706T090000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.52m - 7.6s | Vent: 4km/h)
+UID:ee9057aa-abc5-4dc4-8907-6b7cee733615@ee90.org
+END:VEVENT
 END:VCALENDAR

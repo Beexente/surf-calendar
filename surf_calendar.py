@@ -35,7 +35,7 @@ def get_wind_limit(wind_dir):
 
 def check_swell_criteria(height, period):
     """Valide les 3 paliers stricts de houle"""
-    if 0.5 <= height <= 0.8 and period >= 12:
+    if 0.5 <= height <= 0.8 and period >= 8:
         return True
     if 0.9 <= height <= 1.0 and period >= 11:
         return True

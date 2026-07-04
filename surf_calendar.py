@@ -18,7 +18,7 @@ def get_wind_limit(wind_dir):
 
 def check_swell_criteria(height, period):
     # Version de test élargie pour voir les sessions s'afficher
-    if 0.3 <= height <= 0.8 and period >= 8: return True
+    if 0.3 <= height <= 0.8 and period >= 8: return True # 12 secondes de période minimum pour les petites houles
     if 0.9 <= height <= 1.0 and period >= 11: return True
     if 1.1 <= height <= 3.0 and period >= 9: return True
     return False
@@ -56,9 +56,10 @@ def generate_calendar():
     cal = Calendar()
     cal.extra_attrs = [("X-PUBLISHED-TTL", "PT3H"), ("REFRESH-INTERVAL", "VALUE=DURATION:PT3H")]
 
+    print("\n--- 🔍 INSPECTION DES DONNÉES BRUTES (48H) ---")
     sessions_count = 0
     
-    for i in range(len(times)):
+    for i in range(len(times[:48])): # On inspecte les 2 prochains jours
         dt = datetime.datetime.fromisoformat(times[i])
         date_str = dt.strftime("%Y-%m-%d")
         
@@ -72,24 +73,21 @@ def generate_calendar():
             s_wind = wind_speeds[i]
             d_wind = wind_dirs[i]
             
-            if None in [h_swell, p_swell, s_wind, d_wind]: continue
-                
             is_swell_ok = check_swell_criteria(h_swell, p_swell)
             is_wind_ok = s_wind <= get_wind_limit(d_wind)
             
-            # Temporairement, on valide la marée à 100% le temps de caler les éphémérides stables
-            is_tide_ok = True 
+            # Affichage de contrôle
+            print(f"[{dt.strftime('%a %Hh')}] Houle: {h_swell}m/{p_swell}s ({'OK' if is_swell_ok else 'X'}) | Vent: {s_wind}km/h - Dir: {round(d_wind)}° ({'OK' if is_wind_ok else 'X'})")
             
-            if is_swell_ok and is_wind_ok and is_tide_ok:
+            if is_swell_ok and is_wind_ok:
                 sessions_count += 1
                 event = Event()
                 event.name = f"🏄‍♂️ Surf Madrague ({h_swell}m - {p_swell}s | Vent: {round(s_wind)}km/h)"
                 event.begin = dt
                 event.end = dt + datetime.timedelta(hours=1)
-                event.description = f"🌊 Houle: {h_swell}m | Période: {p_swell}s\n💨 Vent: {s_wind}km/h (Dir: {round(d_wind)}°)"
                 cal.events.add(event)
 
-    print(f"Nombre total de sessions ajoutées : {sessions_count}")
+    print(f"---------------------------------------------\nNombre total de sessions ajoutées : {sessions_count}")
     
     with open("la_madrague.ics", "w", encoding="utf-8") as f:
         f.writelines(cal.serialize_iter())

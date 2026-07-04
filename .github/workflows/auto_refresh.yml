@@ -35,4 +35,4 @@ jobs:
         git add la_madrague.ics
         # Ne crash pas s'il n'y a aucun changement dans les prévisions
         git diff-index --quiet HEAD || git commit -m "Mise à jour automatique des prévisions"
-        git push
+        git push --force

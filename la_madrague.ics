@@ -2,164 +2,45 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:ics.py - http://git.io/lLljaA
 BEGIN:VEVENT
-DESCRIPTION:🌊 Houle : 0.52m | Période : 7.15s\n💨 Vent : 11.6 km/h (↙️)
-DTEND:20260710T170000Z
-DTSTART:20260710T160000Z
-SUMMARY:Good sess' (0.52m - 7.15s - 12km/h ↙️)
-UID:dadff701-f52f-4534-80e7-76c236d0793e@dadf.org
+DESCRIPTION:⏱️ Durée : 6h\n🌊 Houle moyenne : 0.51m | Période : 7.3s\n💨 Vent moyen : 7 km/h (⬅️)
+DTEND:20260706T140000Z
+DTSTART:20260706T080000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.51m - 7.3s | ⬅️ 7km/h)
+UID:8d0ddb09-864d-40ab-b46a-f582dccbce62@8d0d.org
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:🌊 Houle : 0.52m | Période : 7.6s\n💨 Vent : 3.7 km/h (↗️)
-DTEND:20260710T080000Z
-DTSTART:20260710T070000Z
-SUMMARY:Good sess' (0.52m - 7.6s - 4km/h ↗️)
-UID:9689c16a-f8cf-42db-8937-be41e94d3096@9689.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:🌊 Houle : 0.52m | Période : 7.25s\n💨 Vent : 10.4 km/h (↙️)
-DTEND:20260710T150000Z
-DTSTART:20260710T140000Z
-SUMMARY:Good sess' (0.52m - 7.25s - 10km/h ↙️)
-UID:40eb4c9b-c006-474b-adcd-0d929891be91@40eb.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:🌊 Houle : 0.5m | Période : 7.15s\n💨 Vent : 8.8 km/h (⬅️)
-DTEND:20260706T130000Z
-DTSTART:20260706T120000Z
-SUMMARY:Good sess' (0.5m - 7.15s - 9km/h ⬅️)
-UID:8b04697c-4dbe-4912-8782-dce99093b913@8b04.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:🌊 Houle : 0.52m | Période : 7.4s\n💨 Vent : 6.2 km/h (⬅️)
-DTEND:20260706T110000Z
-DTSTART:20260706T100000Z
-SUMMARY:Good sess' (0.52m - 7.4s - 6km/h ⬅️)
-UID:947f7626-8d0f-44ff-8ba9-029a19fb930b@947f.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:🌊 Houle : 0.52m | Période : 7.45s\n💨 Vent : 4.8 km/h (↙️)
-DTEND:20260710T120000Z
-DTSTART:20260710T110000Z
-SUMMARY:Good sess' (0.52m - 7.45s - 5km/h ↙️)
-UID:253e19a0-cb17-4111-a76d-cc3e9d2a8250@253e.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:🌊 Houle : 0.52m | Période : 7.1s\n💨 Vent : 11.9 km/h (↙️)
-DTEND:20260710T180000Z
-DTSTART:20260710T170000Z
-SUMMARY:Good sess' (0.52m - 7.1s - 12km/h ↙️)
-UID:5485f70b-fe1c-4173-87f7-e8c8773e441a@5485.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:🌊 Houle : 0.54m | Période : 7.9s\n💨 Vent : 8.1 km/h (⬅️)
-DTEND:20260710T220000Z
-DTSTART:20260710T210000Z
-SUMMARY:Good sess' (0.54m - 7.9s - 8km/h ⬅️)
-UID:b724b4dc-53c9-4c95-a9fe-ea30c0b47792@b724.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:🌊 Houle : 0.52m | Période : 7.5s\n💨 Vent : 2.5 km/h (⬅️)
-DTEND:20260710T110000Z
-DTSTART:20260710T100000Z
-SUMMARY:Good sess' (0.52m - 7.5s - 2km/h ⬅️)
-UID:4bdc6b71-d4f1-42d5-994d-3bbac6dec14e@4bdc.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:🌊 Houle : 0.64m | Période : 7.8s\n💨 Vent : 9.7 km/h (➡️)
-DTEND:20260705T140000Z
-DTSTART:20260705T130000Z
-SUMMARY:Good sess' (0.64m - 7.8s - 10km/h ➡️)
-UID:3473dd75-769c-462e-a96c-6679d6569792@3473.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:🌊 Houle : 0.52m | Période : 9.7s\n💨 Vent : 5.1 km/h (⬅️)
+DESCRIPTION:⏱️ Durée : 2h\n🌊 Houle moyenne : 0.53m | Période : 8.8s\n💨 Vent moyen : 7 km/h (⬅️)
 DTEND:20260710T230000Z
-DTSTART:20260710T220000Z
-SUMMARY:Good sess' (0.52m - 9.7s - 5km/h ⬅️)
-UID:e9f21fb2-f197-4863-9c1c-dba8dfc732b6@e9f2.org
+DTSTART:20260710T210000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.53m - 8.8s | ⬅️ 7km/h)
+UID:d20053ec-9457-4948-8f0a-6d91d739b06b@d200.org
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:🌊 Houle : 0.62m | Période : 7.75s\n💨 Vent : 3.7 km/h (↘️)
+DESCRIPTION:⏱️ Durée : 2h\n🌊 Houle moyenne : 0.64m | Période : 7.8s\n💨 Vent moyen : 11 km/h (↘️)
+DTEND:20260705T150000Z
+DTSTART:20260705T130000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.64m - 7.8s | ↘️ 11km/h)
+UID:f00a427a-9c34-44ce-91c8-1f401826419d@f00a.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:⏱️ Durée : 1h\n🌊 Houle moyenne : 0.62m | Période : 7.8s\n💨 Vent moyen : 4 km/h (↘️)
 DTEND:20260705T180000Z
 DTSTART:20260705T170000Z
-SUMMARY:Good sess' (0.62m - 7.75s - 4km/h ↘️)
-UID:aea6cc40-7f5d-4077-9099-866376acc295@aea6.org
+SUMMARY:🏄‍♂️ Surf Madrague (0.62m - 7.8s | ↘️ 4km/h)
+UID:ddbb56de-3d35-4f2f-97d7-1c16e7a28ad8@ddbb.org
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:🌊 Houle : 0.52m | Période : 7.2s\n💨 Vent : 11.1 km/h (↙️)
-DTEND:20260710T160000Z
-DTSTART:20260710T150000Z
-SUMMARY:Good sess' (0.52m - 7.2s - 11km/h ↙️)
-UID:eb508e2b-0f76-4c3a-bec8-388bbfa7132c@eb50.org
+DESCRIPTION:⏱️ Durée : 11h\n🌊 Houle moyenne : 0.52m | Période : 7.4s\n💨 Vent moyen : 7 km/h (⬅️)
+DTEND:20260710T180000Z
+DTSTART:20260710T070000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.52m - 7.4s | ⬅️ 7km/h)
+UID:ff313cf0-52d7-48be-ae02-1c56d548895a@ff31.org
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:🌊 Houle : 0.64m | Période : 7.9s\n💨 Vent : 4.9 km/h (↗️)
+DESCRIPTION:⏱️ Durée : 1h\n🌊 Houle moyenne : 0.64m | Période : 7.9s\n💨 Vent moyen : 5 km/h (↗️)
 DTEND:20260705T120000Z
 DTSTART:20260705T110000Z
-SUMMARY:Good sess' (0.64m - 7.9s - 5km/h ↗️)
-UID:0d6ea577-6b36-405a-b4d9-79d2ed7ef17c@0d6e.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:🌊 Houle : 0.52m | Période : 7.6s\n💨 Vent : 3.7 km/h (⬅️)
-DTEND:20260706T100000Z
-DTSTART:20260706T090000Z
-SUMMARY:Good sess' (0.52m - 7.6s - 4km/h ⬅️)
-UID:2985330f-922d-410a-9edc-4529b56921bc@2985.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:🌊 Houle : 0.52m | Période : 7.5s\n💨 Vent : 1.0 km/h (↖️)
-DTEND:20260710T100000Z
-DTSTART:20260710T090000Z
-SUMMARY:Good sess' (0.52m - 7.5s - 1km/h ↖️)
-UID:b48f574e-3313-44c8-ab81-091f3f3d0f42@b48f.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:🌊 Houle : 0.52m | Période : 7.4s\n💨 Vent : 2.9 km/h (⬆️)
-DTEND:20260706T090000Z
-DTSTART:20260706T080000Z
-SUMMARY:Good sess' (0.52m - 7.4s - 3km/h ⬆️)
-UID:e1f2c0e8-43ab-4653-97f4-1202d9356d4d@e1f2.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:🌊 Houle : 0.5m | Période : 7.15s\n💨 Vent : 12.1 km/h (⬅️)
-DTEND:20260706T140000Z
-DTSTART:20260706T130000Z
-SUMMARY:Good sess' (0.5m - 7.15s - 12km/h ⬅️)
-UID:0203c50e-d0ee-466a-9d74-446e6469a044@0203.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:🌊 Houle : 0.52m | Période : 7.3s\n💨 Vent : 9.2 km/h (↙️)
-DTEND:20260710T140000Z
-DTSTART:20260710T130000Z
-SUMMARY:Good sess' (0.52m - 7.3s - 9km/h ↙️)
-UID:34f1502c-6fef-4f8c-ab09-0284c962260d@34f1.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:🌊 Houle : 0.52m | Période : 7.55s\n💨 Vent : 2.2 km/h (↗️)
-DTEND:20260710T090000Z
-DTSTART:20260710T080000Z
-SUMMARY:Good sess' (0.52m - 7.55s - 2km/h ↗️)
-UID:d8525674-ee73-4414-b47f-3831222d70e6@d852.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:🌊 Houle : 0.52m | Période : 7.4s\n💨 Vent : 7.3 km/h (↙️)
-DTEND:20260710T130000Z
-DTSTART:20260710T120000Z
-SUMMARY:Good sess' (0.52m - 7.4s - 7km/h ↙️)
-UID:1221c897-7d55-4129-86a6-81fa20ffbc05@1221.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:🌊 Houle : 0.64m | Période : 7.75s\n💨 Vent : 12.4 km/h (↘️)
-DTEND:20260705T150000Z
-DTSTART:20260705T140000Z
-SUMMARY:Good sess' (0.64m - 7.75s - 12km/h ↘️)
-UID:0cc5070b-55e6-4440-ad7a-a9a1da5a796e@0cc5.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:🌊 Houle : 0.52m | Période : 7.2s\n💨 Vent : 5.9 km/h (↖️)
-DTEND:20260706T120000Z
-DTSTART:20260706T110000Z
-SUMMARY:Good sess' (0.52m - 7.2s - 6km/h ↖️)
-UID:7f7b531c-c57d-4c09-8b8b-19eeb798f18f@7f7b.org
+SUMMARY:🏄‍♂️ Surf Madrague (0.64m - 7.9s | ↗️ 5km/h)
+UID:ea160bed-a3ed-4abd-bd22-64eb16fe65c4@ea16.org
 END:VEVENT
 END:VCALENDAR

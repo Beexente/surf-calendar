@@ -1,0 +1,38 @@
+name: Refresh Surf Calendar
+
+on:
+  schedule:
+    # S'exécute toutes les 6 heures (4 fois par jour)
+    - cron: '0 */6 * * *'
+  workflow_dispatch: # Permet de lancer le script manuellement en 1 clic
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Donne le droit à GitHub d'enregistrer le fichier .ics
+
+    steps:
+    - name: Checkout du code
+      uses: actions/checkout@v4
+
+    - name: Installer Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: Installer les dépendances
+      run: |
+        pip install -r requirements.txt
+
+    - name: Exécuter le script de surf
+      run: python surf_calendar.py
+
+    - name: Sauvegarder et publier le fichier ICS
+      run: |
+        git config --global user.name "Surf Bot"
+        git config --global user.email "bot@surf.com"
+        git add la_madrague.ics
+        # Ne crash pas s'il n'y a aucun changement dans les prévisions
+        git diff-index --quiet HEAD || git commit -m "Mise à jour automatique des prévisions"
+        git push

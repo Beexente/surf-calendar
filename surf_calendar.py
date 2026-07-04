@@ -1,115 +1,150 @@
 import datetime
-import math
 import requests
 from ics import Calendar, Event
 
-# 1. CONFIGURATION DU SPOT : LA MADRAGUE, ANGLET
 SPOT_NAME = "La Madrague (Anglet)"
 LAT = 43.511
 LON = -1.527
 
-# 2. SEUILS DE FILTRAGE (Ajustables)
-HOURS_WINDOW = (6, 21)          # Uniquement entre 6h et 21h
-MIN_SWELL_HEIGHT = 0.7         # Houle propre minimum en mètres
-MAX_SWELL_HEIGHT = 2.5         # Houle max (au-delà, ça sature/ferme)
-MIN_SWELL_PERIOD = 8           # Période mini en secondes
-MAX_WIND_SPEED = 22            # Vent max en km/h
-FAVORABLE_WIND_DIRS = [(45, 135)] # Secteur Offshore (Est / Sud-Est / Nord-Est)
-MIN_ENERGY = 100               # Énergie minimale calculée en Joules (formule Surf-Forecast)
+def get_wind_limit(wind_dir):
+    """Retourne la vitesse max autorisée selon la direction du vent (en degrés)"""
+    # NORD à NORD-EST (0 à 45) -> Max 5 km/h
+    if 0 <= wind_dir < 45:
+        return 5
+    # EST (45 à 135) -> Max 30 km/h
+    elif 45 <= wind_dir < 135:
+        return 30
+    # SUD-EST (135 à 165) -> Max 30 km/h
+    elif 135 <= wind_dir < 165:
+        return 30
+    # SUD (165 à 195) -> Max 25 km/h
+    elif 165 <= wind_dir < 195:
+        return 25
+    # SUD-OUEST (195 à 225) -> Max 10 km/h
+    elif 195 <= wind_dir < 225:
+        return 10
+    # OUEST à NORD-OUEST FAIBLE (225 à 290) -> Max 5 km/h
+    elif 225 <= wind_dir < 290:
+        return 5
+    # NORD-OUEST PUR (290 à 330) -> Tolérance Max 15 km/h
+    elif 290 <= wind_dir <= 330:
+        return 15
+    # NORD-OUEST FIN à NORD (330 à 360) -> Max 5 km/h
+    else:
+        return 5
 
-def is_wind_offshore(wind_dir):
-    """Vérifie si la direction du vent est dans les plages favorables."""
-    for low, high in FAVORABLE_WIND_DIRS:
-        if low <= wind_dir <= high:
-            return True
+def check_swell_criteria(height, period):
+    """Valide les 3 paliers stricts de houle"""
+    if 0.5 <= height <= 0.8 and period >= 12:
+        return True
+    if 0.9 <= height <= 1.0 and period >= 11:
+        return True
+    if 1.1 <= height <= 3.0 and period >= 9:
+        return True
     return False
 
-def calculate_energy(height, period):
-    """
-    Calcule l'énergie de la houle (approximation de la formule de Surf-Forecast).
-    Formule simplifiée : E = H^2 * P * 100 (pour avoir une valeur lisible en kJ/m)
-    """
-    return round((height ** 2) * period * 100)
-
-def fetch_surf_data():
-    # API Open-Meteo Marine (Houle) + Marine comporte aussi les données de vent
-    url = f"https://marine-api.open-meteo.com/v1/marine?latitude={LAT}&longitude={LON}&hourly=swell_wave_height,swell_wave_period,swell_wave_direction,wind_speed_10m,wind_direction_10m&timezone=Europe/Paris"
+def fetch_all_data():
+    """Récupère la Marine (Houle/Vent), les Marées et le Soleil en simultané"""
+    # 1. API Marine + Vent + Marée (indiquée par sea_level_pressure ou ici tide_height si dispo, sinon simulation simplifiée via la lune/pression)
+    # Open-Meteo marine intègre la variable de hauteur de marée directement : 'tide_height'
+    marine_url = f"https://marine-api.open-meteo.com/v1/marine?latitude={LAT}&longitude={LON}&hourly=swell_wave_height,swell_wave_period,swell_wave_direction,wind_speed_10m,wind_direction_10m,tide_height&timezone=Europe/Paris"
     
-    response = requests.get(url)
-    if response.status_code != 200:
-        print("Erreur lors de la récupération des données météo.")
-        return None
-    return response.json()
+    # 2. API Météo classique pour le Lever/Coucher du soleil
+    sun_url = f"https://api.open-meteo.com/v1/forecast?latitude={LAT}&longitude={LON}&daily=sunrise,sunset&timezone=Europe/Paris"
+    
+    try:
+        marine_res = requests.get(marine_url).json()
+        sun_res = requests.get(sun_url).json()
+        return marine_res, sun_res
+    except Exception as e:
+        print(f"Erreur API : {e}")
+        return None, None
 
 def generate_calendar():
-    data = fetch_surf_data()
-    if not data or "hourly" not in data:
+    marine_data, sun_data = fetch_all_data()
+    if not marine_data or "hourly" not in marine_data:
+        print("Données incomplètes.")
         return
     
-    hourly = data["hourly"]
+    # Extraction Soleil (Dictionnaire par date YYYY-MM-DD)
+    sunrises = {sun_data["daily"]["time"][i]: sun_data["daily"]["sunrise"][i] for i in range(len(sun_data["daily"]["time"]))}
+    sunsets = {sun_data["daily"]["time"][i]: sun_data["daily"]["sunset"][i] for i in range(len(sun_data["daily"]["time"]))}
+    
+    hourly = marine_data["hourly"]
     times = hourly["time"]
     swell_heights = hourly["swell_wave_height"]
     swell_periods = hourly["swell_wave_period"]
-    swell_dirs = hourly["swell_wave_direction"]
     wind_speeds = hourly["wind_speed_10m"]
     wind_dirs = hourly["wind_direction_10m"]
+    tide_heights = hourly["tide_height"] # Hauteur d'eau brute en mètres
+    
+    # Calcul des min/max de marée de la semaine pour évaluer le pourcentage (0% à 100%)
+    valid_tides = [t for t in tide_heights if t is not None]
+    min_tide = min(valid_tides) if valid_tides else 0
+    max_tide = max(valid_tides) if valid_tides else 5
+    tide_range = max_tide - min_tide
     
     cal = Calendar()
-    # Ajout du header de rafraîchissement pour Google Calendar (3 heures)
     cal.extra_attrs = [("X-PUBLISHED-TTL", "PT3H"), ("REFRESH-INTERVAL", "VALUE=DURATION:PT3H")]
 
-    print(f"Analyse des prévisions pour {SPOT_NAME}...")
+    print("Calcul des sessions d'expert pour La Madrague...")
     
-    # Parcourt heure par heure
     for i in range(len(times)):
         dt = datetime.datetime.fromisoformat(times[i])
+        date_str = dt.strftime("%Y-%m-%d")
         
-        # Filtre 1 : Fenêtre horaire de journée
-        if not (HOURS_WINDOW[0] <= dt.hour <= HOURS_WINDOW[1]):
+        # 1. FILTRE HORAIRE (Soleil -30min / +30min)
+        if date_str not in sunrises:
+            continue
+        sunrise_dt = datetime.datetime.fromisoformat(sunrises[date_str]) - datetime.timedelta(minutes=30)
+        sunset_dt = datetime.datetime.fromisoformat(sunsets[date_str]) + datetime.timedelta(minutes=30)
+        
+        # Rendre dt "naive" (sans timezone) ou conscient pour comparer
+        if not (sunrise_dt.time() <= dt.time() <= sunset_dt.time()):
             continue
             
+        # Données de l'heure courante
         h_swell = swell_heights[i]
         p_swell = swell_periods[i]
-        d_swell = swell_dirs[i]
         s_wind = wind_speeds[i]
         d_wind = wind_dirs[i]
+        h_tide = tide_heights[i]
         
-        # Protection contre les data nulles
-        if None in [h_swell, p_swell, s_wind, d_wind]:
+        if None in [h_swell, p_swell, s_wind, d_wind, h_tide]:
             continue
             
-        energy = calculate_energy(h_swell, p_swell)
+        # Calcul du pourcentage de marée (0% = Basse, 100% = Haute)
+        tide_percent = round(((h_tide - min_tide) / tide_range) * 100) if tide_range > 0 else 50
         
-        # FILTRE APPLIQUÉ (La Logique Surf-Forecast)
-        is_good_swell = MIN_SWELL_HEIGHT <= h_swell <= MAX_SWELL_HEIGHT and p_swell >= MIN_SWELL_PERIOD
-        is_good_wind = s_wind <= MAX_WIND_SPEED and is_wind_offshore(d_wind)
-        is_good_energy = energy >= MIN_ENERGY
+        # 2. VALIDATION CRITÈRES HOULE ET VENT
+        is_swell_ok = check_swell_criteria(h_swell, p_swell)
+        is_wind_ok = s_wind <= get_wind_limit(d_wind)
         
-        # Pour la V1 Option B : On simule l'exclusion de la marée haute si tu veux l'ajouter plus tard,
-        # ou on laisse l'utilisateur checker sa marée en affichant une info.
-        
-        if is_good_swell and is_good_wind and is_good_energy:
-            # Création du créneau de surf (1 heure par défaut)
+        # 3. VALIDATION CRITÈRE MARÉE (Ta règle spécifique)
+        if h_swell >= 1.8 and p_swell >= 12:
+            is_tide_ok = tide_percent <= 100 # Surfable même au plein haut
+        else:
+            is_tide_ok = tide_percent <= 75  # Pas de surf si la marée dépasse 75%
+            
+        # SI TOUT EST OK -> CRÉATION DU CRÉNEAU
+        if is_swell_ok and is_wind_ok and is_tide_ok:
             event = Event()
-            event.name = f"🏄‍♂️ Surf {SPOT_NAME} ({h_swell}m - {p_swell}s)"
+            event.name = f"🏄‍♂️ Surf Madrague ({h_swell}m - {p_swell}s - {round(s_wind)}km/h)"
             event.begin = dt
             event.end = dt + datetime.timedelta(hours=1)
             
-            # Description riche
             event.description = (
-                f"Conditions validées pour La Madrague :\n\n"
-                f"🌊 Houle : {h_swell}m | Période : {p_swell}s | Dir : {d_swell}°\n"
-                f"💨 Vent : {s_wind} km/h | Dir : {d_wind}° (OFFSHORE 👍)\n"
-                f"⚡ Énergie : {energy} kJ\n"
-                f"⚠️ Vérifier la marée (idéal tiers montant/descendant sur ce spot)."
+                f"🔥 CONDITIONS VALIDÉES LOCALES 🔥\n\n"
+                f"🌊 Houle : {h_swell}m | Période : {p_swell}s\n"
+                f"💨 Vent : {s_wind} km/h (Dir : {round(d_wind)}°)\n"
+                f"📈 Marée : {tide_percent}% (Hauteur : {round(h_tide, 2)}m)\n"
+                f"☀️ Session calée sur la lumière du jour."
             )
-            
             cal.events.add(event)
 
-    # Sauvegarde du fichier ICS
     with open("la_madrague.ics", "w", encoding="utf-8") as f:
         f.writelines(cal.serialize_iter())
-    print("Fichier la_madrague.ics généré avec succès !")
+    print("Fichier mis à jour avec tes critères précis !")
 
 if __name__ == "__main__":
     generate_calendar()

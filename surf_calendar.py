@@ -62,8 +62,10 @@ def generate_calendar():
     
     cal = Calendar()
     cal.extra_attrs = [("X-PUBLISHED-TTL", "PT3H"), ("REFRESH-INTERVAL", "VALUE=DURATION:PT3H")]
-    sessions_count = 0
+    
+    valid_slots = []
 
+    # Étape 1 : Identifier toutes les heures valides isolées
     for i in range(len(times)):
         dt = datetime.datetime.fromisoformat(times[i])
         date_str = dt.strftime("%Y-%m-%d")
@@ -81,18 +83,50 @@ def generate_calendar():
             if None in [h, p, w_s, w_d]: continue
                 
             if check_swell_criteria(h, p) and w_s <= get_wind_limit(w_d):
-                sessions_count += 1
-                arrow = get_wind_arrow(w_d)
-                
-                event = Event()
-                # Titre mis à jour avec la flèche de direction
-                event.name = f"Good sess' ({h}m - {p}s - {round(w_s)}km/h {arrow})"
-                event.begin = dt
-                event.end = dt + datetime.timedelta(hours=1)
-                event.description = f"🌊 Houle : {h}m | Période : {p}s\n💨 Vent : {w_s} km/h ({arrow})"
-                cal.events.add(event)
+                valid_slots.append({
+                    "time": dt,
+                    "h": h,
+                    "p": p,
+                    "w_s": w_s,
+                    "w_d": w_d
+                })
 
-    print(f"Nombre total de sessions ajoutées avec flèches : {sessions_count}")
+    # Étape 2 : Fusionner les heures consécutives en blocs de sessions
+    sessions = []
+    if valid_slots:
+        current_session = [valid_slots[0]]
+        
+        for slot in valid_slots[1:]:
+            # Si le créneau suit exactement le précédent (écart d'une heure)
+            if slot["time"] == current_session[-1]["time"] + datetime.timedelta(hours=1):
+                current_session.append(slot)
+            else:
+                sessions.append(current_session)
+                current_session = [slot]
+        sessions.append(current_session)
+
+    # Étape 3 : Créer les événements consolidés dans le calendrier
+    for sess in sessions:
+        start_time = sess[0]["time"]
+        # L'événement se termine 1h après le début du dernier créneau de la session
+        end_time = sess[-1]["time"] + datetime.timedelta(hours=1)
+        
+        # Calcul des moyennes de la météo pour la session globale
+        avg_h = round(sum(s["h"] for s in sess) / len(sess), 2)
+        avg_p = round(sum(s["p"] for s in sess) / len(sess), 1)
+        avg_w_s = round(sum(s["w_s"] for s in sess) / len(sess))
+        avg_w_d = sum(s["w_d"] for s in sess) / len(sess)
+        
+        arrow = get_wind_arrow(avg_w_d)
+        
+        event = Event()
+        event.name = f"🏄‍♂️ Surf Madrague ({avg_h}m - {avg_p}s | {arrow} {avg_w_s}km/h)"
+        event.begin = start_time
+        event.end = end_time
+        event.description = f"⏱️ Durée : {len(sess)}h\n🌊 Houle moyenne : {avg_h}m | Période : {avg_p}s\n💨 Vent moyen : {avg_w_s} km/h ({arrow})"
+        cal.events.add(event)
+
+    print(f"Nombre total de sessions consolidées ajoutées : {len(sessions)}")
     with open("la_madrague.ics", "w", encoding="utf-8") as f:
         f.writelines(cal.serialize_iter())
 

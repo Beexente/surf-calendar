@@ -4,10 +4,10 @@ from ics import Calendar, Event
 
 SPOT_NAME = "La Madrague (Anglet)"
 LAT = 43.511
-LON = -1.527
+LON = -1.600  # Modifié : Coordonnées légèrement au large pour forcer l'API Marine à répondre !
 
 def get_wind_limit(wind_dir):
-    if wind_dir is None: return 5 # Sécurité si la direction est manquante
+    if wind_dir is None: return 5
     if 0 <= wind_dir < 45: return 5
     elif 45 <= wind_dir < 135: return 30
     elif 135 <= wind_dir < 165: return 30
@@ -19,7 +19,7 @@ def get_wind_limit(wind_dir):
 
 def check_swell_criteria(height, period):
     if height is None or period is None: return False
-    # Version de test élargie pour voir les sessions s'afficher
+    # Version de test élargie pour attraper la session de lundi
     if 0.3 <= height <= 0.8 and period >= 8: return True
     if 0.9 <= height <= 1.0 and period >= 11: return True
     if 1.1 <= height <= 3.0 and period >= 9: return True
@@ -57,10 +57,11 @@ def generate_calendar():
     cal = Calendar()
     cal.extra_attrs = [("X-PUBLISHED-TTL", "PT3H"), ("REFRESH-INTERVAL", "VALUE=DURATION:PT3H")]
 
-    print("\n--- 🔍 INSPECTION DES DONNÉES BRUTES (48H) ---")
+    print("\n--- 🔍 INSPECTION DES DONNÉES DE LUNDI INCLUSES ---")
     sessions_count = 0
     
-    for i in range(len(times[:48])):
+    # On analyse 72 heures pour englober tout lundi sans faute
+    for i in range(len(times[:72])):
         dt = datetime.datetime.fromisoformat(times[i])
         date_str = dt.strftime("%Y-%m-%d")
         
@@ -74,9 +75,8 @@ def generate_calendar():
             s_wind = wind_speeds[i]
             d_wind = wind_dirs[i]
             
-            # SÉCURITÉ : Si une donnée est manquante, on passe à l'heure suivante sans crasher
             if None in [h_swell, p_swell, s_wind, d_wind]: 
-                print(f"[{dt.strftime('%a %Hh')}] Données manquantes (None) pour cette heure.")
+                print(f"[{dt.strftime('%a %Hh')}] Données manquantes au large.")
                 continue
                 
             is_swell_ok = check_swell_criteria(h_swell, p_swell)

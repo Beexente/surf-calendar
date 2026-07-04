@@ -43,7 +43,7 @@ def fetch_surf_data():
 
 def generate_calendar():
     data = fetch_surf_data()
-    if not data or "hourly" axes not in data:
+    if not data or "hourly" not in data:
         return
     
     hourly = data["hourly"]

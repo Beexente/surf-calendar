@@ -7,6 +7,7 @@ LAT = 43.511
 LON = -1.527
 
 def get_wind_limit(wind_dir):
+    if wind_dir is None: return 5 # Sécurité si la direction est manquante
     if 0 <= wind_dir < 45: return 5
     elif 45 <= wind_dir < 135: return 30
     elif 135 <= wind_dir < 165: return 30
@@ -17,14 +18,14 @@ def get_wind_limit(wind_dir):
     else: return 5
 
 def check_swell_criteria(height, period):
+    if height is None or period is None: return False
     # Version de test élargie pour voir les sessions s'afficher
-    if 0.3 <= height <= 0.8 and period >= 8: return True # 12 secondes de période minimum pour les petites houles
+    if 0.3 <= height <= 0.8 and period >= 8: return True
     if 0.9 <= height <= 1.0 and period >= 11: return True
     if 1.1 <= height <= 3.0 and period >= 9: return True
     return False
 
 def fetch_all_data():
-    # URL 100% stable sans la variable sea_level_height qui faisait crasher l'API
     marine_url = f"https://marine-api.open-meteo.com/v1/marine?latitude={LAT}&longitude={LON}&hourly=swell_wave_height,swell_wave_period,swell_wave_direction,wind_speed_10m,wind_direction_10m&timezone=Europe/Paris"
     sun_url = f"https://api.open-meteo.com/v1/forecast?latitude={LAT}&longitude={LON}&daily=sunrise,sunset&timezone=Europe/Paris"
     
@@ -59,7 +60,7 @@ def generate_calendar():
     print("\n--- 🔍 INSPECTION DES DONNÉES BRUTES (48H) ---")
     sessions_count = 0
     
-    for i in range(len(times[:48])): # On inspecte les 2 prochains jours
+    for i in range(len(times[:48])):
         dt = datetime.datetime.fromisoformat(times[i])
         date_str = dt.strftime("%Y-%m-%d")
         
@@ -73,10 +74,14 @@ def generate_calendar():
             s_wind = wind_speeds[i]
             d_wind = wind_dirs[i]
             
+            # SÉCURITÉ : Si une donnée est manquante, on passe à l'heure suivante sans crasher
+            if None in [h_swell, p_swell, s_wind, d_wind]: 
+                print(f"[{dt.strftime('%a %Hh')}] Données manquantes (None) pour cette heure.")
+                continue
+                
             is_swell_ok = check_swell_criteria(h_swell, p_swell)
             is_wind_ok = s_wind <= get_wind_limit(d_wind)
             
-            # Affichage de contrôle
             print(f"[{dt.strftime('%a %Hh')}] Houle: {h_swell}m/{p_swell}s ({'OK' if is_swell_ok else 'X'}) | Vent: {s_wind}km/h - Dir: {round(d_wind)}° ({'OK' if is_wind_ok else 'X'})")
             
             if is_swell_ok and is_wind_ok:
@@ -85,6 +90,7 @@ def generate_calendar():
                 event.name = f"🏄‍♂️ Surf Madrague ({h_swell}m - {p_swell}s | Vent: {round(s_wind)}km/h)"
                 event.begin = dt
                 event.end = dt + datetime.timedelta(hours=1)
+                event.description = f"🌊 Houle: {h_swell}m | Période: {p_swell}s\n💨 Vent: {s_wind}km/h (Dir: {round(d_wind)}°)"
                 cal.events.add(event)
 
     print(f"---------------------------------------------\nNombre total de sessions ajoutées : {sessions_count}")

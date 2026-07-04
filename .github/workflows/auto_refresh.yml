@@ -26,7 +26,10 @@ jobs:
         pip install -r requirements.txt
 
     - name: Exécuter le script de surf
-      run: python surf_calendar.py
+      env:
+        STORMGLASS_KEY: ${{ secrets.STORMGLASS_KEY }}
+      run: |
+         python surf_calendar.py
 
     - name: Sauvegarder et publier le fichier ICS
       run: |

@@ -33,8 +33,9 @@ try:
     print("\n📈 --- LES VRAIS HORAIRES DE MARÉES À ANGLET ---")
     if "data" in t_res:
         for extreme in t_res["data"]:
-            dt = datetime.datetime.fromisoformat(extreme["time"].replace("Z", "+00:00")).withtzinfo(datetime.timezone.utc)
-            local_dt = dt.astimezone(datetime.timezone(datetime.timedelta(hours=2)))
+            # Correction du fuseau horaire ici (.replace au lieu de .withtzinfo)
+            dt = datetime.datetime.fromisoformat(extreme["time"].replace("Z", "+00:00")).replace(tzinfo=datetime.timezone.utc)
+            local_dt = dt.astimezone(datetime.timezone(datetime.timedelta(hours=2))) # UTC+2 (Heure d'été)
             tide_type = "HAUTE (Pleine Mer)" if extreme["type"] == "high" else "BASSE (Basse Mer)"
             print(f"[{local_dt.strftime('%a %Hh%M')}] Marée {tide_type} | Hauteur : {round(extreme['height'], 2)}m")
     else:
@@ -44,7 +45,7 @@ try:
     print("\n🌊 💨 --- APERÇU HOULE PIC & VENT EXTRACTED ---")
     if "hours" in w_res:
         for hour in w_res["hours"][:36]:
-            dt = datetime.datetime.fromisoformat(hour["time"].replace("Z", "+00:00")).withtzinfo(datetime.timezone.utc)
+            dt = datetime.datetime.fromisoformat(hour["time"].replace("Z", "+00:00")).replace(tzinfo=datetime.timezone.utc)
             local_dt = dt.astimezone(datetime.timezone(datetime.timedelta(hours=2)))
             
             if 7 <= local_dt.hour <= 21:

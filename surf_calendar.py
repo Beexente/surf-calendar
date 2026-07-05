@@ -29,7 +29,7 @@ def get_wind_arrow(wind_dir):
 def check_swell_criteria(height, period_calibrated):
     if height is None or period_calibrated is None: return False
     
-    # Sécurité : Si moins de 40cm, ce n'est pas surfable (évite les fausses sessions sur micro-houle)
+    # Sécurité : Si moins de 40cm, ce n'est pas surfable
     if height < 0.40: return False
     
     # Filtres basés sur la période pic calibrée
@@ -41,7 +41,7 @@ def check_swell_criteria(height, period_calibrated):
 def fetch_stormglass_data():
     now = datetime.datetime.now(datetime.timezone.utc)
     start_str = now.strftime("%Y-%m-%d")
-    end_dt = now + datetime.timedelta(days=10) # Prvisions sur 10 jours
+    end_dt = now + datetime.timedelta(days=10) # Prévisions sur 10 jours
     end_str = end_dt.strftime("%Y-%m-%d")
 
     weather_url = f"https://api.stormglass.io/v2/weather/point?lat={LAT}&lng={LON}&params=swellHeight,swellPeriod,windSpeed,windDirection&source=sg&start={start_str}&end={end_str}"
@@ -56,8 +56,14 @@ def fetch_stormglass_data():
 
 def generate_calendar():
     w_data, t_data = fetch_stormglass_data()
+    
+    # 🛠️ ÉTAPE CRITIQUE : Logs de contrôle placés immédiatement ici
+    print("Retour Météo API :", w_data)
+    print("Retour Marée API :", t_data)
+    
+    # Sécurité anticipe un plantage si l'API renvoie une structure d'erreur
     if not w_data or "hours" not in w_data or not t_data or "data" not in t_data:
-        print("Données reçues incomplètes.")
+        print("Données reçues incomplètes. Arrêt du script.")
         return
 
     high_tides = []
@@ -67,7 +73,6 @@ def generate_calendar():
             high_tides.append(dt)
 
     cal = Calendar()
-    # Demande aux applications (Google Calendar/Apple Calendar) de ne rafraîchir que toutes les 24h
     cal.extra_attrs = [("X-PUBLISHED-TTL", "PT24H"), ("REFRESH-INTERVAL", "VALUE=DURATION:PT24H")]
     valid_slots = []
 

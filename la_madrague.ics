@@ -1,32 +1,4 @@
 BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:ics.py - http://git.io/lLljaA
-BEGIN:VEVENT
-DESCRIPTION:⏱️ Durée : 1h\n🌊 Houle moyenne : 0.7m | Période : 7.8s\n💨 Vent moyen : 7 km/h (➡️)\n🚫 Filtre marée haute activé.
-DTEND:20260705T130000Z
-DTSTART:20260705T120000Z
-SUMMARY:🏄‍♂️ Surf Madrague (0.7m - 7.8s | ➡️ 7km/h)
-UID:f3d9d6b5-8d23-4a11-b4bd-e4e36a36367c@f3d9.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:⏱️ Durée : 2h\n🌊 Houle moyenne : 0.54m | Période : 7.2s\n💨 Vent moyen : 7 km/h (⬆️)\n🚫 Filtre marée haute activé.
-DTEND:20260706T090000Z
-DTSTART:20260706T070000Z
-SUMMARY:🏄‍♂️ Surf Madrague (0.54m - 7.2s | ⬆️ 7km/h)
-UID:33c6a248-cc91-4e87-8dc6-c407f2c0da43@33c6.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:⏱️ Durée : 1h\n🌊 Houle moyenne : 0.7m | Période : 7.3s\n💨 Vent moyen : 4 km/h (↘️)\n🚫 Filtre marée haute activé.
-DTEND:20260705T180000Z
-DTSTART:20260705T170000Z
-SUMMARY:🏄‍♂️ Surf Madrague (0.7m - 7.3s | ↘️ 4km/h)
-UID:ce4d5c67-a252-41de-a5f2-3cae6678ced7@ce4d.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:⏱️ Durée : 3h\n🌊 Houle moyenne : 0.51m | Période : 7.2s\n💨 Vent moyen : 5 km/h (⬆️)\n🚫 Filtre marée haute activé.
-DTEND:20260710T100000Z
-DTSTART:20260710T070000Z
-SUMMARY:🏄‍♂️ Surf Madrague (0.51m - 7.2s | ⬆️ 5km/h)
-UID:f5ab55e1-5e5e-4888-af5f-4fbef9b60c6b@f5ab.org
-END:VEVENT
 END:VCALENDAR

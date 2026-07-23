@@ -1,4 +1,11 @@
 BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+DESCRIPTION:⏱️ Durée : 8h\n🌊 Houle moyenne : 1.17m | Période PIC Calibrée : 9.2s\n💨 Vent moyen : 10 km/h (⬅️)\n📊 MAJ : Quotidienne
+DTEND:20260728T130000Z
+DTSTART:20260728T050000Z
+SUMMARY:🏄‍♂️ Surf Madrague (1.17m - 9.2s | ⬅️ 10km/h)
+UID:89ba8158-e5dd-4b80-b0d8-227913365de5@89ba.org
+END:VEVENT
 END:VCALENDAR

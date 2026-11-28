@@ -2,122 +2,129 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:ics.py - http://git.io/lLljaA
 BEGIN:VEVENT
-DESCRIPTION:⏱️ Durée : 1h\n🌊 Houle moyenne : 0.9m | Période PIC Calibrée : 13.5s\n💨 Vent moyen : 3 km/h (⬆️)\n📊 MAJ : Quotidienne
-DTEND:20261206T190000Z
-DTSTART:20261206T180000Z
-SUMMARY:🏄‍♂️ Surf Madrague (0.9m - 13.5s | ⬆️ 3km/h)
-UID:14b3a1e0-37e8-4797-b55f-499c180919b4@14b3.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:⏱️ Durée : 8h\n🌊 Houle moyenne : 1.58m | Période PIC Calibrée : 11.5s\n💨 Vent moyen : 3 km/h (↗️)\n📊 MAJ : Quotidienne
-DTEND:20261201T200000Z
-DTSTART:20261201T120000Z
-SUMMARY:🏄‍♂️ Surf Madrague (1.58m - 11.5s | ↗️ 3km/h)
-UID:cdb64eca-d966-4c75-bfb2-2c03d55c2a62@cdb6.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:⏱️ Durée : 1h\n🌊 Houle moyenne : 1.78m | Période PIC Calibrée : 10.8s\n💨 Vent moyen : 7 km/h (↘️)\n📊 MAJ : Quotidienne
-DTEND:20261203T190000Z
-DTSTART:20261203T180000Z
-SUMMARY:🏄‍♂️ Surf Madrague (1.78m - 10.8s | ↘️ 7km/h)
-UID:2eb4ad9a-e005-42db-bba1-6a4044546ea2@2eb4.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:⏱️ Durée : 4h\n🌊 Houle moyenne : 1.47m | Période PIC Calibrée : 11.0s\n💨 Vent moyen : 9 km/h (⬆️)\n📊 MAJ : Quotidienne
-DTEND:20261202T200000Z
-DTSTART:20261202T160000Z
-SUMMARY:🏄‍♂️ Surf Madrague (1.47m - 11.0s | ⬆️ 9km/h)
-UID:234fdce9-d480-44e0-8346-fdef5a665d89@234f.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:⏱️ Durée : 2h\n🌊 Houle moyenne : 1.5m | Période PIC Calibrée : 10.5s\n💨 Vent moyen : 7 km/h (↗️)\n📊 MAJ : Quotidienne
-DTEND:20261203T070000Z
-DTSTART:20261203T050000Z
-SUMMARY:🏄‍♂️ Surf Madrague (1.5m - 10.5s | ↗️ 7km/h)
-UID:9eb87049-2ef7-4d85-835b-b285885f8fe8@9eb8.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:⏱️ Durée : 1h\n🌊 Houle moyenne : 1.74m | Période PIC Calibrée : 11.8s\n💨 Vent moyen : 7 km/h (⬅️)\n📊 MAJ : Quotidienne
-DTEND:20261130T060000Z
-DTSTART:20261130T050000Z
-SUMMARY:🏄‍♂️ Surf Madrague (1.74m - 11.8s | ⬅️ 7km/h)
-UID:1ccfe6e2-b278-4e1b-a92d-cb1f5664635b@1ccf.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:⏱️ Durée : 6h\n🌊 Houle moyenne : 1.35m | Période PIC Calibrée : 11.1s\n💨 Vent moyen : 9 km/h (⬅️)\n📊 MAJ : Quotidienne
-DTEND:20261204T110000Z
-DTSTART:20261204T050000Z
-SUMMARY:🏄‍♂️ Surf Madrague (1.35m - 11.1s | ⬅️ 9km/h)
-UID:c2ac3f18-4c32-4988-a7c1-8e79fa08ea75@c2ac.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:⏱️ Durée : 9h\n🌊 Houle moyenne : 1.77m | Période PIC Calibrée : 11.9s\n💨 Vent moyen : 10 km/h (⬅️)\n📊 MAJ : Quotidienne
-DTEND:20261130T190000Z
-DTSTART:20261130T100000Z
-SUMMARY:🏄‍♂️ Surf Madrague (1.77m - 11.9s | ⬅️ 10km/h)
-UID:e3ad8291-3b6f-4ade-b78a-e1c3cfa30a9f@e3ad.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:⏱️ Durée : 4h\n🌊 Houle moyenne : 1.54m | Période PIC Calibrée : 11.2s\n💨 Vent moyen : 4 km/h (↖️)\n📊 MAJ : Quotidienne
-DTEND:20261202T090000Z
-DTSTART:20261202T050000Z
-SUMMARY:🏄‍♂️ Surf Madrague (1.54m - 11.2s | ↖️ 4km/h)
-UID:c77244af-50f3-40f8-9ecd-935371b45aa9@c772.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:⏱️ Durée : 3h\n🌊 Houle moyenne : 1.56m | Période PIC Calibrée : 11.6s\n💨 Vent moyen : 6 km/h (↖️)\n📊 MAJ : Quotidienne
+DESCRIPTION:⏱️ Durée : 3h\n🌊 Houle moyenne : 1.62m | Période PIC Calibrée : 11.6s\n💨 Vent moyen : 3 km/h (⬅️)\n📊 MAJ : Quotidienne
 DTEND:20261201T080000Z
 DTSTART:20261201T050000Z
-SUMMARY:🏄‍♂️ Surf Madrague (1.56m - 11.6s | ↖️ 6km/h)
-UID:1f9fd781-07a2-437f-a70a-562d13b8d4d1@1f9f.org
+SUMMARY:🏄‍♂️ Surf Madrague (1.62m - 11.6s | ⬅️ 3km/h)
+UID:a2ebb20f-335c-4d00-adf2-e01cd0d5fba6@a2eb.org
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:⏱️ Durée : 5h\n🌊 Houle moyenne : 1.92m | Période PIC Calibrée : 12.0s\n💨 Vent moyen : 3 km/h (↗️)\n📊 MAJ : Quotidienne
-DTEND:20261129T180000Z
-DTSTART:20261129T130000Z
-SUMMARY:🏄‍♂️ Surf Madrague (1.92m - 12.0s | ↗️ 3km/h)
-UID:352240f1-7fe3-4716-8a3b-f9a9c0f53138@3522.org
+DESCRIPTION:⏱️ Durée : 8h\n🌊 Houle moyenne : 1.65m | Période PIC Calibrée : 11.3s\n💨 Vent moyen : 6 km/h (⬅️)\n📊 MAJ : Quotidienne
+DTEND:20261201T200000Z
+DTSTART:20261201T120000Z
+SUMMARY:🏄‍♂️ Surf Madrague (1.65m - 11.3s | ⬅️ 6km/h)
+UID:2ffc6be2-c663-40ac-b116-10db50439996@2ffc.org
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:⏱️ Durée : 9h\n🌊 Houle moyenne : 2.23m | Période PIC Calibrée : 13.8s\n💨 Vent moyen : 8 km/h (⬅️)\n📊 MAJ : Quotidienne
+DESCRIPTION:⏱️ Durée : 4h\n🌊 Houle moyenne : 1.21m | Période PIC Calibrée : 13.3s\n💨 Vent moyen : 12 km/h (⬅️)\n📊 MAJ : Quotidienne
+DTEND:20261206T200000Z
+DTSTART:20261206T160000Z
+SUMMARY:🏄‍♂️ Surf Madrague (1.21m - 13.3s | ⬅️ 12km/h)
+UID:f0d976f5-25fb-4e9a-8846-677a780d50ab@f0d9.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:⏱️ Durée : 9h\n🌊 Houle moyenne : 2.37m | Période PIC Calibrée : 14.2s\n💨 Vent moyen : 5 km/h (⬅️)\n📊 MAJ : Quotidienne
 DTEND:20261128T170000Z
 DTSTART:20261128T080000Z
-SUMMARY:🏄‍♂️ Surf Madrague (2.23m - 13.8s | ⬅️ 8km/h)
-UID:a2a3653f-374b-4379-8be9-05ab9c6a197f@a2a3.org
+SUMMARY:🏄‍♂️ Surf Madrague (2.37m - 14.2s | ⬅️ 5km/h)
+UID:a225e33c-230a-4a9c-96eb-1e413defddb6@a225.org
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:⏱️ Durée : 2h\n🌊 Houle moyenne : 0.43m | Période PIC Calibrée : 9.8s\n💨 Vent moyen : 5 km/h (↗️)\n📊 MAJ : Quotidienne
-DTEND:20261205T180000Z
-DTSTART:20261205T160000Z
-SUMMARY:🏄‍♂️ Surf Madrague (0.43m - 9.8s | ↗️ 5km/h)
-UID:4539ac44-6d5c-481d-8f22-aa66c5555215@4539.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:⏱️ Durée : 1h\n🌊 Houle moyenne : 1.1m | Période PIC Calibrée : 11.1s\n💨 Vent moyen : 5 km/h (↙️)\n📊 MAJ : Quotidienne
-DTEND:20261204T160000Z
-DTSTART:20261204T150000Z
-SUMMARY:🏄‍♂️ Surf Madrague (1.1m - 11.1s | ↙️ 5km/h)
-UID:12b1002d-10cd-441b-9c6b-a55a7a3b451d@12b1.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:⏱️ Durée : 7h\n🌊 Houle moyenne : 0.66m | Période PIC Calibrée : 13.8s\n💨 Vent moyen : 5 km/h (⬆️)\n📊 MAJ : Quotidienne
-DTEND:20261206T120000Z
-DTSTART:20261206T050000Z
-SUMMARY:🏄‍♂️ Surf Madrague (0.66m - 13.8s | ⬆️ 5km/h)
-UID:fd62ca06-7083-42db-af71-bd5f21ed9c5b@fd62.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:⏱️ Durée : 1h\n🌊 Houle moyenne : 0.99m | Période PIC Calibrée : 11.0s\n💨 Vent moyen : 5 km/h (↖️)\n📊 MAJ : Quotidienne
-DTEND:20261204T200000Z
-DTSTART:20261204T190000Z
-SUMMARY:🏄‍♂️ Surf Madrague (0.99m - 11.0s | ↖️ 5km/h)
-UID:e2efda32-60e0-42de-81b7-8a8a49980c71@e2ef.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:⏱️ Durée : 2h\n🌊 Houle moyenne : 1.5m | Période PIC Calibrée : 11.1s\n💨 Vent moyen : 7 km/h (⬆️)\n📊 MAJ : Quotidienne
-DTEND:20261202T150000Z
+DESCRIPTION:⏱️ Durée : 7h\n🌊 Houle moyenne : 1.51m | Période PIC Calibrée : 11.0s\n💨 Vent moyen : 4 km/h (↙️)\n📊 MAJ : Quotidienne
+DTEND:20261202T200000Z
 DTSTART:20261202T130000Z
-SUMMARY:🏄‍♂️ Surf Madrague (1.5m - 11.1s | ⬆️ 7km/h)
-UID:7c1dfb96-2b1a-41a8-ac08-645f05088d09@7c1d.org
+SUMMARY:🏄‍♂️ Surf Madrague (1.51m - 11.0s | ↙️ 4km/h)
+UID:b9e32f29-82d7-4238-94b3-4bd2e0b2d6b9@b9e3.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:⏱️ Durée : 1h\n🌊 Houle moyenne : 0.79m | Période PIC Calibrée : 10.8s\n💨 Vent moyen : 7 km/h (➡️)\n📊 MAJ : Quotidienne
+DTEND:20261204T190000Z
+DTSTART:20261204T180000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.79m - 10.8s | ➡️ 7km/h)
+UID:4a288e54-b584-4522-8187-d2153c055ebc@4a28.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:⏱️ Durée : 5h\n🌊 Houle moyenne : 0.53m | Période PIC Calibrée : 10.7s\n💨 Vent moyen : 7 km/h (⬅️)\n📊 MAJ : Quotidienne
+DTEND:20261205T120000Z
+DTSTART:20261205T070000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.53m - 10.7s | ⬅️ 7km/h)
+UID:e6af6f45-a6a2-47fa-9e09-709bdb931d10@e6af.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:⏱️ Durée : 4h\n🌊 Houle moyenne : 0.51m | Période PIC Calibrée : 14.0s\n💨 Vent moyen : 6 km/h (⬅️)\n📊 MAJ : Quotidienne
+DTEND:20261205T200000Z
+DTSTART:20261205T160000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.51m - 14.0s | ⬅️ 6km/h)
+UID:d0ccd5ff-96d4-4aa5-b86c-60a85afd72fc@d0cc.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:⏱️ Durée : 9h\n🌊 Houle moyenne : 1.81m | Période PIC Calibrée : 12.1s\n💨 Vent moyen : 9 km/h (⬅️)\n📊 MAJ : Quotidienne
+DTEND:20261130T190000Z
+DTSTART:20261130T100000Z
+SUMMARY:🏄‍♂️ Surf Madrague (1.81m - 12.1s | ⬅️ 9km/h)
+UID:12c4e435-9c29-483a-8740-7bc21207eeb1@12c4.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:⏱️ Durée : 4h\n🌊 Houle moyenne : 1.52m | Période PIC Calibrée : 11.1s\n💨 Vent moyen : 4 km/h (↖️)\n📊 MAJ : Quotidienne
+DTEND:20261202T090000Z
+DTSTART:20261202T050000Z
+SUMMARY:🏄‍♂️ Surf Madrague (1.52m - 11.1s | ↖️ 4km/h)
+UID:7056ddbc-2821-47f5-8811-74527db1d523@7056.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:⏱️ Durée : 5h\n🌊 Houle moyenne : 1.27m | Période PIC Calibrée : 10.2s\n💨 Vent moyen : 3 km/h (↖️)\n📊 MAJ : Quotidienne
+DTEND:20261203T100000Z
+DTSTART:20261203T050000Z
+SUMMARY:🏄‍♂️ Surf Madrague (1.27m - 10.2s | ↖️ 3km/h)
+UID:1c32edd3-bcd7-468a-9853-2cecff2ca65c@1c32.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:⏱️ Durée : 1h\n🌊 Houle moyenne : 1.83m | Période PIC Calibrée : 11.8s\n💨 Vent moyen : 8 km/h (⬅️)\n📊 MAJ : Quotidienne
+DTEND:20261130T060000Z
+DTSTART:20261130T050000Z
+SUMMARY:🏄‍♂️ Surf Madrague (1.83m - 11.8s | ⬅️ 8km/h)
+UID:be1758f7-11d0-46f5-82d0-854ce23d8275@be17.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:⏱️ Durée : 1h\n🌊 Houle moyenne : 1.13m | Période PIC Calibrée : 10.9s\n💨 Vent moyen : 7 km/h (⬆️)\n📊 MAJ : Quotidienne
+DTEND:20261204T060000Z
+DTSTART:20261204T050000Z
+SUMMARY:🏄‍♂️ Surf Madrague (1.13m - 10.9s | ⬆️ 7km/h)
+UID:5eb8ace0-fa8f-4e11-8858-7e3f26f1df29@5eb8.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:⏱️ Durée : 6h\n🌊 Houle moyenne : 1.33m | Période PIC Calibrée : 11.0s\n💨 Vent moyen : 6 km/h (↙️)\n📊 MAJ : Quotidienne
+DTEND:20261203T200000Z
+DTSTART:20261203T140000Z
+SUMMARY:🏄‍♂️ Surf Madrague (1.33m - 11.0s | ↙️ 6km/h)
+UID:1f3e86f4-ddaa-48cf-a7a4-ba7eb7cdfa3d@1f3e.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:⏱️ Durée : 2h\n🌊 Houle moyenne : 0.98m | Période PIC Calibrée : 14.0s\n💨 Vent moyen : 6 km/h (⬅️)\n📊 MAJ : Quotidienne
+DTEND:20261206T070000Z
+DTSTART:20261206T050000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.98m - 14.0s | ⬅️ 6km/h)
+UID:35914bb6-4fab-4301-8b82-d08d74491b77@3591.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:⏱️ Durée : 3h\n🌊 Houle moyenne : 1.1m | Période PIC Calibrée : 13.8s\n💨 Vent moyen : 8 km/h (⬅️)\n📊 MAJ : Quotidienne
+DTEND:20261206T120000Z
+DTSTART:20261206T090000Z
+SUMMARY:🏄‍♂️ Surf Madrague (1.1m - 13.8s | ⬅️ 8km/h)
+UID:60fd6dc1-9ecf-4352-b026-874b04adb612@60fd.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:⏱️ Durée : 8h\n🌊 Houle moyenne : 1.19m | Période PIC Calibrée : 13.0s\n💨 Vent moyen : 10 km/h (↖️)\n📊 MAJ : Quotidienne
+DTEND:20261207T130000Z
+DTSTART:20261207T050000Z
+SUMMARY:🏄‍♂️ Surf Madrague (1.19m - 13.0s | ↖️ 10km/h)
+UID:215a3ea8-e8c5-4fb7-9db8-493f2b8a7d7d@215a.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:⏱️ Durée : 1h\n🌊 Houle moyenne : 0.97m | Période PIC Calibrée : 12.5s\n💨 Vent moyen : 9 km/h (↖️)\n📊 MAJ : Quotidienne
+DTEND:20261207T200000Z
+DTSTART:20261207T190000Z
+SUMMARY:🏄‍♂️ Surf Madrague (0.97m - 12.5s | ↖️ 9km/h)
+UID:8b8b2a00-8303-48b5-8aec-13064de83c6e@8b8b.org
 END:VEVENT
 END:VCALENDAR
